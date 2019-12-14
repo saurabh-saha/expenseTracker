@@ -108,7 +108,7 @@ $(document).ready(function() {
 				    		$('#example').dataTable().fnUpdate(data,index,undefined,false);
 				    		alert(response.message)
 				    	}else{
-				    		alert(response.message)
+				    		alert('Update Failed: ' + response.message)
 				    	}
 				    });
 
