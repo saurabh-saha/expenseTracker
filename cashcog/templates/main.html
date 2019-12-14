@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css" />
+</head>
+
+<body>
+
+	<table id="example" class="display responsive" style="width:100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Curr</th>
+                <th>Amt</th>
+                <th>Created</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+
+
+	<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script src="{% static 'app.js' %}"></script>
+
+</body>
+</html>
