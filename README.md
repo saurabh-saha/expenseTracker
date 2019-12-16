@@ -15,10 +15,10 @@ The frontend is optimised for mobile and desktop so the user can perform the fol
 
 1) search for any field passed in the table. 
 
-   If you have queries to search two or three fields in the same row the use the search bar and separate different keys using space
+   If you have queries to search two or three fields in the same row the use the search bar and separate different keys using space. ex. pending binny
 
-2) update status as Yes/No realtime and the user is alerted of the changes.
+2) user can easily update the staus of an expense by clicking on Yes/No buttons at the end of each row. This updates the postgres row and the frontend table row. If this action is successfull the user is alerted of the changes on the browser.
 
-3) Mobile friendly page
+3) To check more details about each row expand each row, it displays description and User Name.
 
-4) Description and User Name details is found on expanding each row.
+
