@@ -1,8 +1,8 @@
-Start
+How to get started ?
 
-a) install Postgres on the local server, port 5432 and DB name xcnt
+a) You just need a working postgres server. This server currently connects to postgres on 127.0.0.1:5432//xcnt (xcnt is the database name)
 
-b) download the Cachcog Django project, go inside the main folder and run this command to start the server.    
+b) Once you have the postgres server running, go inside the main folder and run this command to start the server.    
 python3 manage.py runserver
 
 c) then open 127.0.0.1/home
@@ -13,4 +13,8 @@ UI Features 
 
    Multiple fields can be searched by separating using space
 
-2) update status as Yes/No and the user is alerted of the changes. 
+2) update status as Yes/No realtime and the user is alerted of the changes.
+
+3) Mobile friendly page
+
+4) Description and User Name details is found on expanding each row.
