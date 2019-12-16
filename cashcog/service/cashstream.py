@@ -1,6 +1,6 @@
 
 from threading import Thread
-from cashcog import utils, dbutils
+from cashcog.util import utils, dbutils
 
 url = 'https://cashcog.xcnt.io/stream'
 

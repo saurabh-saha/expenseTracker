@@ -1,4 +1,4 @@
-from cashcog import utils
+from cashcog.util import utils
 import json
 
 def getMessage(body):

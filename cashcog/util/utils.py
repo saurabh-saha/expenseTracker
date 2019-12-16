@@ -2,7 +2,7 @@ import json
 import requests
 import time
 
-from cashcog import dbutils
+from cashcog.util import dbutils
 from cashcog import model
 
 import traceback
