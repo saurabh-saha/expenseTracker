@@ -35,7 +35,7 @@ function format ( d ) {
         '</tr>'+
     '</table>';
 }
- 
+
 $(document).ready(function() {
 
     $.ajax({
@@ -48,6 +48,7 @@ $(document).ready(function() {
           
             var table = $('#example').DataTable( {
             "data": data.expenses ,
+            "lengthChange": false,
             "columns": [
                 {
                     "className":      'details-control',
@@ -119,5 +120,7 @@ $(document).ready(function() {
         }
     });
      
-
-} );
+	$(".filter_button").on('click',function(){
+	    alert($("#status_select").val());
+	});
+});

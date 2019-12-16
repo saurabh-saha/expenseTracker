@@ -5,3 +5,8 @@ td.details-control {
 tr.shown td.details-control {
     background: url('https://datatables.net/examples/resources/details_close.png') no-repeat center center;
 }
+
+div.dataTables_filter input { 
+	border: 1px solid #524f4f;
+	border-radius : 5px 
+}
