@@ -50,7 +50,7 @@ def createTable():
             sql = '''
                 create table expenses (
                   id bigserial,
-                  uuid varchar unique,
+                  uuid varchar,
                   description varchar,
                   created_at timestamp,
                   amount int,
@@ -66,8 +66,8 @@ def createTable():
             sql = '''
                 create table users (
                   id bigserial,
-                  uuid varchar references expenses(uuid),
-                  emp_uuid varchar unique,
+                  uuid varchar references,
+                  emp_uuid varchar,
                   first_name varchar,
                   last_name varchar,
                   created_at timestamp default now()

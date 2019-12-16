@@ -42,7 +42,7 @@ def getAllExpenses(request):
 		cur = conn.cursor()
 		cur.execute('''
 		select e.id as expense_id, u.id as user_id, e.uuid, description, currency, amount, 
-		first_name, last_name, e.created_at , status
+		first_name, last_name, to_char(e.created_at, 'DD Mon YYYY') , status
 		from expenses e join users u on e.uuid = u.uuid
 		''')
 		rows = cur.fetchall()

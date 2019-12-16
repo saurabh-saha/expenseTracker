@@ -18,40 +18,50 @@ def processPendingTrans():
             expenses = []
             users = []
             transactionsIds = []
+
+            noOfExpenses = 0
+            noOfUsers = 0
+            noOfTrans = 0
+
             for tid,data,created_at in rows:
                 exp,user = model.getMessage(data)
                 expenses.append(exp)
                 users.append(user)
                 transactionsIds.append(tid)
 
-            print('Fetched', len(expenses), len(users))
+            print('Fetched', len(expenses), len(users), len(transactionsIds))
 
-            try:
-                sql = 'insert into expenses(uuid, description, created_at, amount, currency) values '
-                sql += ','.join(cur.mogrify("(%s,%s,%s,%s,%s)", x).decode('utf-8') for x in expenses)
-                sql += ' on conflict do nothing'
-                cur.execute(sql)
-                conn.commit()
-            except Exception as e:
-                print('Error saving expense',e, traceback.format_exc())
+            if expenses and users:
+                try:
+                    sql = 'insert into expenses(uuid, description, created_at, amount, currency) values '
+                    sql += ','.join(cur.mogrify("(%s,%s,%s,%s,%s)", x).decode('utf-8') for x in expenses)
+                    #sql += ' on conflict do nothing'
+                    cur.execute(sql)
+                    noOfExpenses = cur.rowcount
+                    conn.commit()
+                except Exception as e:
+                    print('Error saving expense',e, traceback.format_exc())
 
-            try:
-                sql = 'insert into users(uuid, emp_uuid, first_name, last_name) values '
-                sql += ','.join(cur.mogrify("(%s,%s,%s,%s)", x).decode('utf-8') for x in users)
-                sql += ' on conflict do nothing'
-                cur.execute(sql)
-                conn.commit()
-            except Exception as e:
-                print('Error saving user',e, traceback.format_exc())
+                try:
+                    sql = 'insert into users(uuid, emp_uuid, first_name, last_name) values '
+                    sql += ','.join(cur.mogrify("(%s,%s,%s,%s)", x).decode('utf-8') for x in users)
+                    #sql += ' on conflict do nothing'
+                    cur.execute(sql)
+                    noOfUsers = cur.rowcount
+                    conn.commit()
+                except Exception as e:
+                    print('Error saving user',e, traceback.format_exc())
 
-            try:
-                sql = "update all_transactions set read = 't' where id in "
-                sql += "(" + ','.join([str(x) for x in transactionsIds]) + ")"
-                cur.execute(sql)
-                conn.commit()
-            except Exception as e:
-                print('Error updating all_transactions',e, traceback.format_exc())
+                try:
+                    sql = "update all_transactions set read = 't' where id in "
+                    sql += "(" + ','.join([str(x) for x in transactionsIds]) + ")"
+                    cur.execute(sql)
+                    noOfTrans = cur.rowcount
+                    conn.commit()
+                except Exception as e:
+                    print('Error updating all_transactions',e, traceback.format_exc())
 
+            print('Updated',noOfExpenses,noOfUsers,noOfTrans)
             cur.close()
             conn.close()
 
