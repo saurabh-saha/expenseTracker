@@ -6,7 +6,7 @@ bleach==2.1.4
 certifi==2018.4.16
 chardet==3.0.4
 decorator==4.3.0
-Django==3.0
+Django==3.0.14
 entrypoints==0.2.3
 fuzzywuzzy==0.17.0
 html5lib==1.0.1
