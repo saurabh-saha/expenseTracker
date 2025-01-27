@@ -21,9 +21,6 @@ The frontend is optimised for mobile and desktop so the user can perform the fol
 
 3) To check more details about each row expand each row, it displays description and User Name.
 
-
-It looks like you've included a mix of Python, Django template, and HTML code with some embedded CSS and JavaScript for a data table. Here’s an explanation and breakdown of the key components:
-
 ### Python Code
 1. **Threading Initialization**:
    - The Python snippet starts two threads:
