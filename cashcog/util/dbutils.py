@@ -3,12 +3,17 @@ import psycopg2
 def createConnection():
     conn = None
     try:
-        conn = psycopg2.connect('dbname=xcnt host=127.0.0.1')
+        conn = psycopg2.connect(
+            dbname="neondb",
+            user="neondb_owner",
+            password="npg_EWe1w3JUxfhF",
+            host="ep-black-water-a1sk805z-pooler.ap-southeast-1.aws.neon.tech",
+            sslmode="require"
+        )
+        # print("Connection to the database was successful!")
         return conn
     except Exception as e:
-    	print('Could not connect to db', e)
-
-    return conn
+        print("Could not connect to the database:", e)
 
 def isTableExists(cur,tableName):
     try:
@@ -55,6 +60,7 @@ def createTable():
                   created_at timestamp,
                   amount int,
                   currency varchar,
+                  status varchar,
                   updated_at timestamp default now()
                 )
             '''
@@ -66,7 +72,7 @@ def createTable():
             sql = '''
                 create table users (
                   id bigserial,
-                  uuid varchar references,
+                  uuid varchar,
                   emp_uuid varchar,
                   first_name varchar,
                   last_name varchar,
@@ -78,5 +84,7 @@ def createTable():
             print('Created table expenses')
 
         conn.close()
+
+        return True
     except Exception as e:
     	print('Exception creating table', e)
