@@ -22,6 +22,7 @@ Once the server is running, navigate to the home page in your browser:
 ```
 127.0.0.1:8000/home
 ```
+![Home](wiki/UI.png)
 
 ---
 
@@ -32,6 +33,7 @@ Once the server is running, navigate to the home page in your browser:
 - To search for multiple fields in the same row, use the search bar and separate the keys with spaces.
   
   **Example:** Searching for `pending binny` will filter rows containing both "pending" and "binny" in the same row.
+  ![Search](wiki/search.png)
 
 ### 2. **Update Expense Status**
 - Users can easily update the status of an expense by clicking the **Yes/No** buttons at the end of each row.
@@ -39,7 +41,8 @@ Once the server is running, navigate to the home page in your browser:
   - The corresponding row in the PostgreSQL database is updated.
   - The frontend table row is refreshed to reflect the change.
   - A success alert is displayed on the browser, confirming the action.
-
+  ![Update](wiki/update.png)
+  - 
 ### 3. **View Row Details**
 - For additional details about a specific row, users can expand the row.
   - This action reveals the **description** and **User Name** for the selected entry.
@@ -49,8 +52,4 @@ Once the server is running, navigate to the home page in your browser:
 ## Optimized User Interface
 - The frontend is designed to be responsive and optimized for both **mobile** and **desktop** users.
 - All functionalities (search, update status, view details) are seamless across devices.
-
----
-
-Enjoy using the application!
 
